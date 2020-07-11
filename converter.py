@@ -23,22 +23,10 @@ def createPlaylist():
         "--extract-audio", "--audio-format", "mp3", songURL])
 
         # os.mkdir(r'C:\Users\Aidan\Desktop\folder')
-        
-        # password = request.form.get('password')
 
     return render_template('index.html', playlistName=playlistName, songName=songName)
 
- 
-
-    
-
-            
-
 if __name__ == "__main__":
     app.run(debug = True)
-
-
-# song_name = input("Please enter the name: ")
-# song_url = input("Please enter the url: ")
 
 
