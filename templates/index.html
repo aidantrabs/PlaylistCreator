@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Playlist Creator</title>
+    <link rel= "stylesheet" href= "{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+ 
+    <form action = "" method= "post">
+        <p>
+            <label for = "playlistName">Enter your playlist name: </label>
+            <br>
+            <input type = "text" name = "playlistName">
+        </p>
+
+        <p>
+            <label for = "songName">Enter song name: </label>   
+            <br>
+            <input type = "text" name = "songName">
+         </p>
+
+        <p>
+           <label for = "songURL">Enter Youtube URL: </label>   
+           <br>
+           <input type = "text" name = "songURL">
+        </p>
+
+        
+        <p>
+            <button type="submit" name = "submit_button" value = "createBtn">Create playlist</button> 
+            <!-- <button type = "submit" value = "clearBtn">Clear</button> -->
+        </p>
+    </form>
+    
+    {% if playlistName %}
+    <p>{{ playlistName }}</p>
+    {% endif %}
+
+
+    <p>{{songName}}</p>
+
+</body>
+</html>
