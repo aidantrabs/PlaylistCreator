@@ -1,5 +1,4 @@
-
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import os
 import subprocess
 
@@ -15,13 +14,13 @@ def createPlaylist():
     songName = ' '
     error_message = ''
 
-    # If form request sent (button pressed)
+    # If post request sent 
     if request.method == 'POST':
 
-        # Get form information
-        playlistName = request.form.get('playlistName')
-        songURL = request.form.get('songURL')
-        songName = request.form.get('songName')
+        # Form information
+        playlistName = request.form['playlistName']
+        songURL = request.form['songURL']
+        songName = request.form['songName']
 
         # Check if playlist name is not empty
         if playlistName != "":
@@ -31,13 +30,13 @@ def createPlaylist():
                 error_message = 'This playlist folder already exists!'
 
         # Use youtube-dl to download song at specific file path 
-        subprocess.call(['youtube-dl', '-o', os.path.expanduser('~') + '\\Desktop\\' + songName + ".mp3",
+        subprocess.call(['youtube-dl', '-o', songName + ".mp3",
         "--extract-audio", "--audio-format", "mp3", songURL])
+
+        os.system('move ' + songName + ".mp3 " + os.path.expanduser('~') + '\\Desktop\\' + playlistName)
 
     # Return html page
     return render_template('index.html', playlistName=playlistName, songName=songName)
 
 if __name__ == "__main__":
     app.run(debug = True)
-
-

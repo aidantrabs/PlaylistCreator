@@ -1,12 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <title>Playlist Creator</title>
     <link rel= "stylesheet" href= "{{ url_for('static', filename='css/styles.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
 
     <h>Playlist Creator</h>
@@ -35,21 +36,26 @@
 
         
         <p>
-            <button type="submit" name = "submit_button" value = "createBtn">Create playlist</button> 
+            <button type ="submit" name = "submit_button" value = "createBtn">Create playlist</button> 
             <!-- <button type = "submit" value = "clearBtn">Clear</button>  -->
+            <button onclick="myFunction()" value = "clearBtn">Clear</button> 
         </p>
+
     </form>
     
     {% if playlistName %}
-    <p>{{ playlistName }}</p>
+    <p> Your playlist, {{ playlistName }}, has been created</p>
     {% endif %}
-
-    <p>{{songName}}</p>
 
 </body>
 
 <script>
-    var 
-</script>
 
+    function myFunction()
+    {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+    }
+
+</script>
 </html>
