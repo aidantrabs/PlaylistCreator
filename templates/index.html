@@ -10,7 +10,7 @@
 
 <body>
 
-    <h>Playlist Creator</h>
+    <h>Playlist Creator</h> 
  
     <form action = "" method= "post">
         <p>
@@ -37,8 +37,8 @@
         
         <p>
             <button type ="submit" name = "submit_button" value = "createBtn">Create playlist</button> 
-            <!-- <button type = "submit" value = "clearBtn">Clear</button>  -->
-            <button onclick="myFunction()" value = "clearBtn">Clear</button> 
+            <button type = "submit" value = "clearBtn">Clear</button> 
+            <button onclick="darkToggle()" class = "fa fa-adjust" value = "toggleBtn"></button> 
         </p>
 
     </form>
@@ -51,7 +51,7 @@
 
 <script>
 
-    function myFunction()
+    function darkToggle()
     {
         var element = document.body;
         element.classList.toggle("dark-mode");

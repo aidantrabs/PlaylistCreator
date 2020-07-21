@@ -33,6 +33,7 @@ def createPlaylist():
         subprocess.call(['youtube-dl', '-o', songName + ".mp3",
         "--extract-audio", "--audio-format", "mp3", songURL])
 
+        # Move song files to playlist folder
         os.system('move ' + songName + ".mp3 " + os.path.expanduser('~') + '\\Desktop\\' + playlistName)
 
     # Return html page
